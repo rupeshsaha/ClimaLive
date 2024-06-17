@@ -1,0 +1,50 @@
+body{
+    background-color:rgb(255, 255, 255);
+    width: 95vw;
+    height: 100vh;
+}
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem;
+}
+
+
+.navbar i {
+    font-size: 2rem;
+}
+
+.date{
+    font-size: 1.5rem;
+}
+
+.weather i {
+    font-size: 6rem;
+    margin-top: 1.5rem;
+}
+
+.weather{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.location{
+    font-size: 5rem ;
+    font-weight: bold;
+}
+
+.brief{
+    font-size: 2.2rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+    
+    
+}
+
+.temperature{
+    font-size: 6rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
