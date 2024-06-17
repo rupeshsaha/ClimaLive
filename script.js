@@ -21,7 +21,7 @@ date.innerText = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`
 let fullDate = new Date();
 fullDate = `${fullDate.getFullYear()}-0${fullDate.getMonth()+1}-${fullDate.getDate()}T${fullDate.getHours()}:00`
 
-console.log(fullDate);
+
 
 
 async function getData(){
@@ -32,7 +32,6 @@ async function getData(){
         }
         const data = await response.json();
         const index = data.hourly.time.indexOf(fullDate)
-        console.log(index);
      temperature.innerText = data.hourly.temperature_2m[index] +"°C";
 
     }
