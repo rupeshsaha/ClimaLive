@@ -1,76 +1,56 @@
-let refresh = document.querySelector(".refresh");
+// DOM elements
 let date = document.querySelector(".date");
 let city = document.querySelector(".location");
 let brief = document.querySelector(".brief");
-let brief_image = document.querySelector(".brief-image");
 let temperature = document.querySelector(".temperature");
 
-let URL = "https://api.open-meteo.com/v1/forecast?latitude=25.778914&longitude=87.4742&hourly=temperature_2m&timezone=auto"
-
+// Arrays for date formatting
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
-
-
-
-
+// Initialize date
 const d = new Date();
+date.innerText = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
 
-date.innerText = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`
+// Event listener for search button
+document.querySelector("#search-button").addEventListener("click", async function() {
+    let inputValue = document.querySelector("#search-bar").value.trim(); // Trim whitespace
 
+    if (inputValue) {
+        city.innerText = inputValue.charAt(0).toUpperCase()+inputValue.slice(1); // Update city name
 
-document.querySelector("#search-button").addEventListener("click", function(){
+        try {
+            let current_url = `http://api.weatherapi.com/v1/current.json?key=94a008657eb74bb0969134527241706&q=${inputValue}`;
+            const currentResponse = await fetch(current_url);
 
-    if(!document.querySelector("#search-bar")){
+            if (!currentResponse.ok) {
+                throw new Error("No Response");
+            }
 
-  let searchBar = document.createElement("input");
-      searchBar.id = "search-bar";
-      searchBar.placeholder = "Enter Your City";
-      searchBar.style.border = "2px solid black"
-      searchBar.style.height = "2rem"
-      searchBar.style.width = "6rem"
-      searchBar.style.margin ="0.5rem"
-   
-   document.querySelector("#search-button").appendChild(searchBar)
-    }
-  
-})
+            const currentData = await currentResponse.json();
+            temperature.innerText = `${currentData.current.temp_c}°C`;
+            brief.innerText = currentData.current.condition.text;
 
-
-document.querySelector("#search-button").addEventListener("click", function(){
-
-    if(document.querySelector("#search-bar")){
-    let inputValue = document.querySelector("#search-bar").value;
-
-    city.innerText = inputValue;
-    city = inputValue
-    }
-})
-
-
-
-
-
-
-
-let current_url = "http://api.weatherapi.com/v1/current.json?key=94a008657eb74bb0969134527241706&q=Purnia&aqi=yes"
-
-async function getCurrentData(){
-    try{
-        const currentResponse = await fetch(current_url);
-        if(!currentResponse.ok){
-            throw new Error("No Response")
+        } catch (error) {
+            console.error("Error fetching weather data:", error);
         }
-        const currentData = await currentResponse.json();
-        temperature.innerText=currentData.current.temp_c +"°C";
-        brief.innerText = currentData.current.condition.text; 
-    
-        
-
+    } else {
+        console.log("Please enter a city name.");
     }
-    catch (error){
-        console.error("kuch garbar hai");
-    }
-}
+});
 
-getCurrentData()
+// Event listener for creating search bar if not present
+document.querySelector("#search-button").addEventListener("click", function() {
+    if (!document.querySelector("#search-bar")) {
+        let searchBar = document.createElement("input");
+        searchBar.id = "search-bar";
+        searchBar.placeholder = "Enter Your City";
+        searchBar.style.border = "2px solid black";
+        searchBar.style.height = "2rem";
+        searchBar.style.width = "6rem";
+        searchBar.style.margin = "0.5rem";
+   
+        document.querySelector("#search-button").appendChild(searchBar);
+    }
+});
+
