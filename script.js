@@ -19,6 +19,34 @@ const d = new Date();
 date.innerText = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`
 
 
+document.querySelector("#search-button").addEventListener("click", function(){
+
+    if(!document.querySelector("#search-bar")){
+
+  let searchBar = document.createElement("input");
+      searchBar.id = "search-bar";
+      searchBar.placeholder = "Enter Your City";
+      searchBar.style.border = "2px solid black"
+      searchBar.style.height = "2rem"
+      searchBar.style.width = "6rem"
+      searchBar.style.margin ="0.5rem"
+   
+   document.querySelector("#search-button").appendChild(searchBar)
+    }
+  
+})
+
+
+document.querySelector("#search-button").addEventListener("click", function(){
+
+    if(document.querySelector("#search-bar")){
+    let inputValue = document.querySelector("#search-bar").value;
+
+    city.innerText = inputValue;
+    city = inputValue
+    }
+})
+
 
 
 
@@ -37,7 +65,7 @@ async function getCurrentData(){
         temperature.innerText=currentData.current.temp_c +"°C";
         brief.innerText = currentData.current.condition.text; 
     
-        console.log(currentData.current.condition.icon);
+        
 
     }
     catch (error){

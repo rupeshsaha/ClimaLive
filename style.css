@@ -19,6 +19,11 @@ body{
     font-size: 1.5rem;
 }
 
+#search-button{
+    background-color: white;
+    border: 0;
+}
+
 .weather i {
     font-size: 6rem;
     margin-top: 1.5rem;
