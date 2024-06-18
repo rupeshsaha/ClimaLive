@@ -21,8 +21,12 @@ document.querySelector("#search-button").addEventListener("click", async functio
             if (!currentResponse.ok) {
             
                 throw document.querySelector(".error").innerText = "Check the spelling and your Internet connection.";
+                
             }
-
+            
+            if (!currentResponse.ok){
+                document.querySelector(".weather").style.display = "none";
+            }
         
             
             
@@ -32,7 +36,11 @@ document.querySelector("#search-button").addEventListener("click", async functio
             temperature.innerText = `${currentData.current.temp_c}°C`;
             brief.innerText = currentData.current.condition.text;
             city.innerText = currentData.location.name;
-          
+           
+            console.log(typeof currentData.location.name);
+
+        
+            
 
         } catch (error) {
            console.error("some error occured",error);
@@ -40,7 +48,7 @@ document.querySelector("#search-button").addEventListener("click", async functio
         }
     } else {
         document.querySelector(".error").innerText = "Please enter a city name.";
-        
+       
     }
 });
 
