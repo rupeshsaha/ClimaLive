@@ -12,25 +12,35 @@ document.querySelector("#search-button").addEventListener("click", async functio
     
 
     if (inputValue) {
-        city.innerText = inputValue.charAt(0).toUpperCase()+inputValue.slice(1); // Update city name
+        
 
         try {
             let current_url = `https://api.weatherapi.com/v1/current.json?key=94a008657eb74bb0969134527241706&q=${inputValue}`;
             const currentResponse = await fetch(current_url);
 
             if (!currentResponse.ok) {
-                throw new Error("No Response");
+            
+                throw document.querySelector(".error").innerText = "Check the spelling and your Internet connection.";
             }
 
+        
+            
+            
+         
             const currentData = await currentResponse.json();
+            console.log(currentData);
             temperature.innerText = `${currentData.current.temp_c}°C`;
             brief.innerText = currentData.current.condition.text;
+            city.innerText = currentData.location.name;
+          
 
         } catch (error) {
-            console.error("Error fetching weather data:", error);
+           console.error("some error occured",error);
+           
         }
     } else {
-        console.log("Please enter a city name.");
+        document.querySelector(".error").innerText = "Please enter a city name.";
+        
     }
 });
 
