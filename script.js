@@ -20,7 +20,7 @@ document.querySelector("#search-button").addEventListener("click", async functio
         city.innerText = inputValue.charAt(0).toUpperCase()+inputValue.slice(1); // Update city name
 
         try {
-            let current_url = `http://api.weatherapi.com/v1/current.json?key=94a008657eb74bb0969134527241706&q=${inputValue}`;
+            let current_url = `https://api.weatherapi.com/v1/current.json?key=94a008657eb74bb0969134527241706&q=${inputValue}`;
             const currentResponse = await fetch(current_url);
 
             if (!currentResponse.ok) {
