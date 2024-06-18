@@ -1,4 +1,6 @@
 This is a Weather App which uses Weather API to fetch weather data 
 
-Still in development phase 
+ignore the UI 🥲
+
+<a href = "https://rupeshsaha.github.io/Weather-App/">Don't Click Here</a>
 
