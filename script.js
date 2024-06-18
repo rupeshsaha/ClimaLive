@@ -9,48 +9,36 @@ let temperature = document.querySelector(".temperature");
 // Event listener for search button
 document.querySelector("#search-button").addEventListener("click", async function() {
     let inputValue = document.querySelector("#search-bar").value.trim();
-    
 
     if (inputValue) {
-        
-
         try {
             let current_url = `https://api.weatherapi.com/v1/current.json?key=94a008657eb74bb0969134527241706&q=${inputValue}`;
             const currentResponse = await fetch(current_url);
 
             if (!currentResponse.ok) {
-            
-                throw document.querySelector(".error").innerText = "Check the spelling and your Internet connection.";
-                
+                throw new Error("Check the spelling and your Internet connection.");
             }
             
-            if (!currentResponse.ok){
-                document.querySelector(".weather").style.display = "none";
-            }
-        
-            
-            
-         
             const currentData = await currentResponse.json();
             console.log(currentData);
+            
+            // Update DOM elements with API data
             temperature.innerText = `${currentData.current.temp_c}°C`;
             brief.innerText = currentData.current.condition.text;
             city.innerText = currentData.location.name;
-           
-            console.log(typeof currentData.location.name);
-
-        
             
-
+            document.querySelector(".weather").style.display = "flex";
+            document.querySelector(".error").innerText = "";
+            
         } catch (error) {
-           console.error("some error occured",error);
-           
+            console.error("Error fetching data:", error);
+            
+            // Handle error by displaying error message and hiding .weather class
+            document.querySelector(".error").innerText = error.message;
+            document.querySelector(".weather").style.display = "none";
         }
     } else {
         document.querySelector(".error").innerText = "Please enter a city name.";
-       
+        document.querySelector(".weather").style.display = "none";
     }
 });
-
-
-
