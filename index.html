@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Page Configurations -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=7">
-    <meta name="description"
-        content="ClimaLive: Get real-time weather updates and accurate forecasts. Check current weather status, temperature, humidity, wind speed, and more with our user-friendly weather app. Stay informed with live notifications and alerts. Download ClimaLive now!">
-    <meta name="keywords"
-        content="ClimaLive, real-time weather updates, live weather information, weather app, current weather status, accurate weather forecasts, weather notifications, temperature updates, humidity levels, wind speed, precipitation forecast, user-friendly weather app, weather alerts, instant weather updates, live weather conditions">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-
-    <!-- Open Graph Properties -->
-    <meta property="og:title" content="ClimaLive: Real-Time Weather Updates">
-    <meta property="og:description"
-        content="Stay ahead of the weather with ClimaLive. Get real-time updates, accurate forecasts, and live notifications. Download now!">
-    <meta property="og:image" content="https://example.com/path-to-your-image.jpg">
-    <meta property="og:url" content="https://example.com">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="ClimaLive">
-
-    <!-- Website Icon -->
-    <link rel="shortcut icon" href="static/assets/logo/logo_bg.png" type="image/x-icon">
-
-    <!-- Importing Font Icons -->
-     <link rel="stylesheet" href="css/icofont.css">
-
-     <!-- Import Primary/Global CSS -->
-      <link rel="stylesheet" href="css/primary.css">
-
-      <!-- Importing Custom CSS -->
-       <link rel="stylesheet" href="css/index.css">
-
-    <title>ClimaLive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel = "stylesheet" href = "style.css">
+    <script src="https://kit.fontawesome.com/2fc395ed84.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1 class="temp">ClimaLive <i class="icofont-cloud"></i></h1>
-    <p>Stay ahead of the weather with ClimaLive, your go-to app for real-time weather updates. Whether you’re planning your
-    day, preparing for a trip, or just curious about the current weather conditions in any city, ClimaLive has you covered.
-    Our user-friendly interface provides accurate and up-to-the-minute information on temperature, humidity, wind speed, and
-    more.</p>
+
+     <div class="card">
+    <div class="navbar">
+       
+        <div class="search"><input type="text" id="search-bar" placeholder="Enter Your City"></div>
+        <div class="search"><button id = "search-button" ><image src=  "icons/icons8-search-50.png" class="search-png"></i></button></div><br>
+            
+
+    </div>
+    <div class="error"></div>
+
+    <div class="weather">
+        <div class="temperature"></div>
+        <div class="location"></div>
+        <div class="brief"></div>
+    
+    
+     <div class="brief-image"></i></div>
+     
+</div>
+
+</div>
+
+
+    <script src = "script.js"></script>
 </body>
 </html>
+

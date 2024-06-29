@@ -1,0 +1,84 @@
+body{
+    background-color:rgb(70, 70, 70);
+    width: 95vw;
+    height: 100vh;
+    color:white;
+}
+.navbar{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+    
+   
+    
+}
+
+    
+#search-button{
+ border-radius: 2rem;
+ margin-left: 1.5rem;
+}
+
+#search-bar{
+    border: 0;
+    border-radius: 2rem;
+    height:2rem;
+    width:15rem;
+    margin: auto;
+}
+.date{
+    font-size: 1.5rem;
+}
+
+#search-button{
+    background-color: white;
+    border: 0;
+}
+
+.weather i {
+    font-size: 6rem;
+    margin-top: 1.5rem;
+}
+
+.weather{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.location{
+    font-size:35px ;
+    
+}
+
+.error{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:20px;
+    font-weight: bold;
+}
+
+.brief{
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+    
+    
+}
+
+.temperature{
+    font-size: 65px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.card {
+    width: 300px; /* Adjust the width as per your requirement */
+    
+    margin: auto; /* Centers the card horizontally */
+    padding: 20px; /* Adds some padding inside the card */
+    padding-top: 0%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow for depth */
+    background: linear-gradient(to bottom right , cyan ,rgb(233, 77, 233));
+    border-radius: 2rem;
+}
