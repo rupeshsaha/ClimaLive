@@ -1,0 +1,139 @@
+@import url(animation.css);
+@import url(primary.css);
+
+nav.toggleNormalMenu {
+    width: calc(100% - 4rem);
+    height: 2rem;
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navbar-neutral);
+    box-shadow: 0 2px 5px var(--primary-neutral);
+    position: fixed;
+    z-index: 999;
+    
+    /* Nav > .Title */
+    & .title a{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        /* Nav .Title .Logo */
+        & .logo{
+            height: 2rem;
+            width: 2rem;
+
+            /* Nav .Title .Logo img */
+            & img{
+                height: 100%;;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+        
+        /* Nav .Title h1 */
+        & h1{
+            font-size: 1.5rem;
+            letter-spacing: 0.7px;
+            font-weight: 550;
+        }
+    }
+
+    /* Hidding hamburger menu On Large size windows */
+    & i.icofont-navigation-menu{
+        cursor: pointer;
+        display: none;
+    }
+
+    /* <i class="icofont-close" /> */
+    & i.icofont-close{
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        position: relative;
+        padding: 0.1rem;
+        left: 0.1rem;
+        border-radius: 50%;
+
+        /* On Hover */
+        &:hover{
+            background: var(--accent-neutral);
+        }
+    }
+
+    /* Nav ul */
+    & ul{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        /* Nav ul li a*/
+        & li a{
+            width: 100%;
+            text-transform: capitalize;
+            color: var(--accent-neutral);
+
+                /* On Hover */
+                &:hover{
+                    color: var(--text-neutral);
+                }
+            }
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    /* Hide Horizontal menu used by .toggleNormalMenu class */
+    nav.toggleNormalMenu{
+        /* Show Hamburger menu On screen size of 500px or less */
+            & i.icofont-navigation-menu {
+                display: block;
+                font-size: 1.5rem;
+            }
+
+        & ul {
+            display: none;
+        }
+    }
+
+    
+    /* Trigger menu on Click */
+    nav.toggleMenu{
+        position: relative;
+        border-bottom: 1.5px solid var(--primary-neutral);
+        box-shadow: none;
+
+        & i.icofont-close{
+            display: block;
+        }
+        
+        /* Nav.toggleMenu ul */
+        & ul{
+            display: flex;
+            position: absolute;
+            flex-direction: column;
+            top: calc(3rem + 1.5px);
+            background: var(--border-neutral);
+            width: calc(100% - 0rem);
+            left: 0;
+            height: calc(100vh - (4rem + 1.5px));
+            padding: 0.5rem 0;
+            overflow-y: scroll;
+            align-items: start;
+            animation: slide-up .5s ease-in;
+
+            /* Nav.toggleMenu ul li */
+            & li {
+                width: fit-content;
+                padding: 0 1rem;
+                margin: 0 0;
+
+                /* Nav.toggleMenu ul li a */
+                & a{
+                text-align: left;
+                color: var(--secondary-neutral);
+            }}
+        }
+    }
+}

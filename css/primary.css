@@ -1,0 +1,84 @@
+* {
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif !important;
+    font-size: 16px;
+    font-weight: 400;
+    transition-property: color, background;
+    transition-timing-function: ease-in;
+    transition-duration: 0.15s;
+    /* border: 1px solid; */
+}
+
+grammarly-desktop-integration{
+    display: none;
+}
+
+html{
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+input,
+button {
+    outline: none;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.scrollbar-none::-webkit-scrollbar{
+    display: none;
+}
+
+.inner-scroll-none::-webkit-inner-spin-button{
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+body{
+    width: 100vw;
+}
+
+ul, ol{
+    list-style: none;
+}
+
+/* Summer Theme */
+:root {
+    --primary-summer: #FFD700;
+    --secondary-summer: #FF8C00;
+    --accent-summer: #87CEEB;
+    --background-summer: #F4A460;
+    --text-summer: #32CD32;
+    --border-summer: #FFA500;
+}
+
+/* Winter Theme */
+:root {
+    --primary-winter: #4682B4;
+    --secondary-winter: #5F9EA0;
+    --accent-winter: #98FF98;
+    --background-winter: #B0C4DE;
+    --text-winter: #FFFFFF;
+    --border-winter: #708090;
+}
+
+/* Neutral Theme */
+:root {
+    --background-neutral: #F5F5F5;
+    --primary-neutral: #333333;
+    --secondary-neutral: #666666;
+    --accent-neutral: #999999;
+    --text-neutral: #000000;
+    --border-neutral: #DDDDDD;
+    --navbar-neutral: #FFFFFF;
+}
